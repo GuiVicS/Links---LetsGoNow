@@ -54,11 +54,60 @@ Nosso objetivo é espalhar a mensagem de IDE POR TODO O MUNDO!">
 }
 
 body {
+  max-height:100vh;
   max-width:100%;
-  overflow-x:hidden;
+  overflow:hidden;
   font-family: Arial, sans-serif;
   background-color: var(--background-color);
 }
+  
+ /* Ícone do Whatsapp */
+.whatsapp::before {
+    box-shadow:inset 2px 0px #fff;
+    background:black;
+    padding-inline:10px;
+    border-radius:10px;
+    float:left;
+    font-family: "FontAwesome"; 
+    font-weight: 900;
+    content: "\f232"; /* Unicode do ícone do Whatsapp */
+}
+
+/* Ícone da Loja (Sacola) */
+.loja::before {
+    background:black;
+    padding-inline:10px;
+    border-radius:10px;
+    float:left;
+    font-family: "Font Awesome 5 Pro"; 
+    font-weight: 900;
+    content: "\f291"; /* Unicode do ícone da sacola */
+}
+
+/* Ícone da Camiseta */
+.camiseta::before {
+    background:black;
+    padding-inline:10px;
+    border-radius:10px;
+    background:black;
+    border-radius:10px;
+    float:left;
+    font-family: "Font Awesome 5 Pro"; 
+    font-weight: 900;
+    content: "\f553"; /* Unicode do ícone da camiseta */
+}
+
+/* Ícone da Blusa */
+.blusa::before {
+    background:black;
+    padding-inline:10px;
+    border-radius:10px;
+    float:left;
+    font-family: "Font Awesome 5 Pro"; 
+    font-weight: 900;
+    content: "\e3c7"; /* Unicode personalizado do ícone da blusa */
+}
+  /*  */
   .todo{
   color: var(--text-color);
   margin: 0;
@@ -195,9 +244,13 @@ h1 {
 }
 
 .btn {
+  padding:3px;
+  font-weight:bold;
   display: block;
+  flex-direction:row;
   width: 100%;
-  padding: 12px;
+  height:40px;
+  line-height:40px;
   margin-bottom: 10px;
   background-color: var(--button-color);
   color: var(--text-color);
@@ -282,10 +335,10 @@ h1 {
   <h1>LetsGoNow</h1>
   
   <div class="btn-container">
-    <a href="https://websim.io/portfolio" class="btn">Camisetas por apenas R$249,90</a>
-    <a href="https://websim.io/blog" class="btn">Blusas Moletom por R$99,90</a>
-    <a href="https://websim.io/loja" class="btn">Ver Loja</a>
-    <a href="https://websim.io/contato" class="btn">Entre em Contato</a>
+    <a href="https://letsgonow.com.br/collections/camisetas" class="camiseta btn">Camisetas por apenas R$249,90</a>
+    <a href="https://letsgonow.com.br/collections/moletons" class="blusa btn">Blusas Moletom por R$99,90</a>
+    <a href="https://letsgonow.com.br/" class="loja btn">Ver Loja</a>
+    <a href="https://websim.io/contato" class="whatsapp btn">Entre em Contato</a>
   </div>
   
   <div class="social-icons">
@@ -351,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Clone o conteúdo para criar o efeito contínuo
     const clone = textoBanner1.cloneNode(true);
-    document.querySelector('.banner').appendChild(clone);
+    document.querySelector('.banner-2').appendChild(clone);
 });
   
   
