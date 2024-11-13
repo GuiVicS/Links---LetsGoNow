@@ -57,6 +57,159 @@ Nosso objetivo é espalhar a mensagem de IDE POR TODO O MUNDO!">
 <!---font-awesome pro--->
 <title>LetsGoNow - Links</title>
 <style>
+ #shareButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #333333;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 997;
+  }
+  
+  #shareButton i {
+    color: #ffffff;
+  }
+  
+  #shareButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 998;
+  }
+  
+  #popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    max-width: 90%;
+    width: 400px;
+  }
+  
+  #popup.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  
+  .share-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .share-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    transition: transform 0.2s;
+    text-align: center;
+  }
+  
+  .share-link:hover {
+    transform: scale(1.1);
+  }
+  
+  .share-link span {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #ffffff;
+  }
+  
+  #closePopup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ffffff;
+  }
+
+  h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  /* Estilos para as bolinhas coloridas */
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .icon-circle i {
+    color: #ffffff;
+  }
+
+  /* Cores específicas para cada ícone */
+  #copyLink .icon-circle {
+    background-color: #4CAF50;
+  }
+  
+  .x-twitter-circle {
+    background: linear-gradient(135deg, #1DA1F2, #14171A);
+  }
+  
+  .facebook-circle {
+    background-color: #4267B2;
+  }
+  
+  .whatsapp-circle {
+    background-color: #25D366;
+  }
+  
+  .linkedin-circle {
+    background-color: #0077B5;
+  }
+  
+  .facebook-messenger-circle {
+    background: linear-gradient(135deg, #00B2FF, #006AFF);
+  }
+  
+  .tiktok-circle {
+    background: linear-gradient(135deg, #00F2EA, #FF0050);
+  }
+  
+  .email-circle {
+    background-color: #D44638;
+  }
+    
 :root {
   --primary-color: #ff3131;
   --background-color: #1d1e22;
