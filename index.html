@@ -427,9 +427,103 @@ h1 {
 </div>
 <!--------faixa----fim------->   
   </div>
+  <!---- compartilhar  ---->
+
+      <button id="shareButton">
+    <i class="fa-sharp fa-solid fa-share-nodes"></i>
+  </button>
   
+  <div id="overlay"></div>
+  
+  <div id="popup">
+    <button id="closePopup">&times;</button>
+    <h2>Compartilhe nas redes sociais</h2>
+    <div class="share-links">
+      <a href="#" class="share-link" id="copyLink">
+        <div class="icon-circle">
+          <i class="fa-sharp fa-solid fa-link"></i>
+        </div>
+        <span>Copiar link</span>
+      </a>
+      <a href="https://twitter.com/intent/tweet?url=https://links.letsgonow.com.br" class="share-link" target="_blank" rel="noopener noreferrer">
+        <div class="icon-circle x-twitter-circle">
+          <i class="fab fa-x-twitter"></i>
+        </div>
+        <span>X</span>
+      </a>
+      <a href="https://facebook.com/sharer/sharer.php?u=https://links.letsgonow.com.br" class="share-link" target="_blank" rel="noopener noreferrer">
+        <div class="icon-circle facebook-circle">
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <span>Facebook</span>
+      </a>
+      <a href="https://api.whatsapp.com/send?text=https://links.letsgonow.com.br" class="share-link" target="_blank" rel="noopener noreferrer">
+        <div class="icon-circle whatsapp-circle">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <span>WhatsApp</span>
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://links.letsgonow.com.br" class="share-link" target="_blank" rel="noopener noreferrer">
+        <div class="icon-circle linkedin-circle">
+          <i class="fab fa-linkedin-in"></i>
+        </div>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://www.facebook.com/dialog/send?link=https://links.letsgonow.com.br&app_id=YOUR_APP_ID" class="share-link" target="_blank" rel="noopener noreferrer">
+        <div class="icon-circle facebook-messenger-circle">
+          <i class="fab fa-facebook-messenger"></i>
+        </div>
+        <span>Messenger</span>
+      </a>
+      <a href="https://www.tiktok.com/share?url=https://links.letsgonow.com.br" class="share-link" target="_blank" rel="noopener noreferrer">
+        <div class="icon-circle tiktok-circle">
+          <i class="fab fa-tiktok"></i>
+        </div>
+        <span>TikTok</span>
+      </a>
+      <a href="mailto:?subject=Confira este link&body=https://links.letsgonow.com.br" class="share-link">
+        <div class="icon-circle email-circle">
+          <i class="fa-sharp fa-solid fa-envelope"></i>
+        </div>
+        <span>Email</span>
+      </a>
+    </div>
+  </div>
+
+    
+  <!---- compartilhar  ---->
 <script>
-  
+  //COMPARTILHAR POPUP
+ const shareButton = document.getElementById('shareButton');
+    const popup = document.getElementById('popup');
+    const closePopup = document.getElementById('closePopup');
+    const copyLink = document.getElementById('copyLink');
+    const overlay = document.getElementById('overlay');
+
+    function showPopup() {
+      popup.classList.add('show');
+      overlay.style.display = 'block';
+    }
+
+    function hidePopup() {
+      popup.classList.remove('show');
+      overlay.style.display = 'none';
+    }
+
+    shareButton.addEventListener('click', showPopup);
+    closePopup.addEventListener('click', hidePopup);
+    overlay.addEventListener('click', hidePopup);
+
+    copyLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert('Link copiado para a área de transferência!');
+      }).catch(err => {
+        console.error('Erro ao copiar link: ', err);
+      });
+    });
+
+    
 document.addEventListener('DOMContentLoaded', function() {
     const textoBanner1 = document.querySelector('.texto-banner');
 
